@@ -1,0 +1,23 @@
+#content {
+    background-color: lightyellow;
+    padding: 15px;
+}
+
+.figure {
+    display: inline-block;;
+    width: 220px;
+    margin: 10px
+}
+
+.photo img {
+    border: white 5px solid;
+    outline: black 1px solid;
+    box-shadow: 5px 5px 5px #777777;
+}
+
+.figure p {
+    text-align: center;
+    padding: 0px 10px;
+    margin: 10px 0px;
+    font-size: 0.8em;
+}

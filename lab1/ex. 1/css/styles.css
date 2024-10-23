@@ -1,0 +1,132 @@
+p:nth-of-type(1){
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-style: italic;
+    color: hsl(60, 63%, 33%);
+    background-color: lightgrey;
+    border: 2px solid black;
+    margin: 0px
+}
+
+p:nth-of-type(2){
+    height: 150px;
+    width: 500px;
+    overflow: scroll;
+    background-color: lightblue;
+    margin: 0px;
+    padding: 15px;
+}
+
+
+p:nth-of-type(3){
+    height: 150px;
+    width: 500px;
+    overflow: hidden;
+    background-color: green;
+}
+
+p:nth-of-type(4){
+    background-color: gray;
+}
+
+p:nth-of-type(5){
+    text-align: justify;
+}
+
+/* apply to every elment of elements within element of class
+ "excel-table" that satisfy following conditions */
+.excel-table th {
+    background-color: #5b9cd6;
+}
+
+.excel-table tbody tr:nth-child(even) {
+    background-color: #d3def0;
+}
+
+.excel-table tbody tr:nth-child(odd) {
+    background-color: #ebeff8;
+}
+
+.excel-table2 {
+    border-collapse: collapse; /* collapse into single border */
+}
+
+.excel-table2 th {
+    background-color: #776f6d;
+    border: 2px solid black;
+}
+
+.excel-table2 tbody td {
+    background-color: #d9d9d9;
+    border: 2px solid black;
+}
+
+/* float left and right means that images moves to right/left of the container, 
+   so moves its position within text */
+.float-left {
+    float: left;
+    width: 100px;
+    margin-right: 10px;
+    /* padding: 10px; */
+}
+
+.float-right {
+    float: right;
+    width: 150px;
+    margin: 10px 0px 10px 10px;
+}
+
+/* position:static by deafult - normal flow of the page */
+/* position:fixed is positioned according to the viewport */
+/* position:absolute is positioned to closest parent with position:relative position top-left corner (NOTE: absolutelly position elements are out of document flow = doesn't impact container dimensions.  */
+/* position:sticky moves down the page while scrolling */
+.images {
+    position: relative;
+    background-color: yellow;
+    width: 620px;
+    height: 210px;
+    overflow: hidden;
+}
+
+.images img {
+    width: 200px;
+    height: 200px;
+}
+
+.images :nth-child(1) {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.images :nth-child(2) {
+    position: absolute;
+    left: 205px;
+    top: 0px;
+}
+
+.images :nth-child(3) {
+    position: absolute;
+    left: 410px;
+    top: 0px;
+}
+
+.countries {
+    position: relative;
+    width: 210px;
+    height: 210px;
+}
+
+.europe {
+    background-color:lightblue;
+    position: absolute;
+    top: 0px;
+    left: 100px;
+}
+
+.asia {
+    background-color: rgb(166, 93, 93);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}

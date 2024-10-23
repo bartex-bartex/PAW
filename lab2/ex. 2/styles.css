@@ -1,0 +1,27 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 20px;
+}
+
+.content div {
+    display: flex;
+    min-width: 100px;
+    min-height: 100px;
+    gap: 20px 20px;
+}
+
+.red {
+    background-color: orange;
+    flex-grow: 1;
+}
+
+.blue {
+    background-color: lightblue;
+    flex-grow: 3;
+}
+
+.yellow {
+    background-color: lightyellow;
+    flex-grow: 1;
+}

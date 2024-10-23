@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+
+body {
+    font: 62.5% Verdana, Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* flexbox is so powerful for positioning/space usage of elements */
+ul {
+    display: flex;
+    list-style-type: none;  /* remove the bullets */
+    margin: auto;           /* best way to CENTER a block element HORIZONTALLY */ 
+    padding: 0px;
+}
+
+li {
+    width: 100px;
+    background-color: lightgray;
+    border: 1px dotted #777777;
+}
+
+li:hover {
+    background-color: white;
+}
+
+li a {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 5px;
+}
+
+li a:hover {
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+</style>
+
+</head>
+<body>
+    <ul>
+        <li><a href="/index.html"><img src="images/home.png" alt="Home">Strona główna</a></li>
+        <li><a href="/features/"><img src="images/bg_here.png" alt="Bg">Oferta</a></li>
+        <li><a href="/experts/"><img src="images/link.png" alt="Link1">Eksperci</a></li>
+        <li><a href="/quiz/"><img src="images/link.png" alt="Link2">Quiz</a></li>
+        <li><a href="/projects/"><img src="images/link.png" alt="Link3">Projekty</a></li>
+        <li><a href="/horoscopes/"><img src="images/link.png" alt="Link4">Horoskop</a></li>
+    </ul>
+</body>
+</html>
