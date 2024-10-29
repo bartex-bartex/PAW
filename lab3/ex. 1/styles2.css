@@ -1,0 +1,79 @@
+body {
+    background-color: lightgray;
+}
+
+.content {
+    margin: auto 10%;
+    display: grid;
+    background-color: darkgray;
+    grid-template-areas: 
+        "top top top top"
+        "header1 header2 header3 header4"
+        "left middle middle right"
+        "footer footer footer footer";
+    grid-template-rows: 2fr 1fr 6fr 1fr;
+    position: relative; /* Added to ensure .logo is positioned correctly */
+}
+
+.content div {
+    border: 1px solid black;
+}
+
+.logo {
+    display: flex;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 15%;
+    max-width: 100px;
+    height: 10%;
+    background-color: white;
+    align-items: flex-end;
+    padding: 5px;
+}
+
+.header {
+    grid-area: top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.main, .location {
+    font-weight: bold;
+    background-color: lightblue;
+}
+
+.main, .gallery, .location, .contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-col, .right-col, .middle-col {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px;
+}
+
+.left-col {
+    grid-area: left;
+}
+
+.right-col {
+    grid-area: right;
+}
+
+.middle-col {
+    grid-area: middle;
+}
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}

@@ -1,0 +1,28 @@
+.calendar {
+    max-width: 800px;
+}
+
+.head {
+    display: flex;
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+    background-color: lightgray;
+    padding: 5px 10px 5px 10px;
+}
+
+.entry {
+    display: flex;
+    align-items: flex-start;
+    padding: 5px 0px 5px 10px;
+    border-collapse: collapse;
+    border-top: 1px solid gray;
+}
+
+ul {
+    margin: 0px;
+}
+
+li::marker{
+    color: blue;
+}

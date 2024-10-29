@@ -1,0 +1,158 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; /* padding + border included in width/height */
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.container {
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    z-index: 1;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 2;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(23, 157, 201);
+}
+
+.header-logo {
+    color: white;
+    font-size: 30px;
+    margin: 0px;
+}
+
+.header-menu {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.header-menu li {
+    position: relative;
+}
+
+.header-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+/* position and style of submenu */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 2;
+    min-width: 150px; /* Szerokość minimalna dla submenu */
+}
+
+/* showing submenu */
+.header-menu li:hover > .submenu {
+    display: block;
+}
+
+/* text color on each link */
+.submenu li a {
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+    white-space: nowrap;
+    position: relative;
+}
+
+/* text color on hover on link */
+.submenu li a:hover {
+    background-color: rgba(0, 123, 255, 0.2); /* Niebieski efekt hover w submenu */
+}
+
+/* addition on hover */
+.submenu li a:hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: #007bff;
+    border-radius: 0 5px 5px 0; /* Zaokrąglony wskaźnik */
+}
+
+/* Stylowanie dodatkowego submenu wewnątrz "More" */
+.submenu li:hover .subsubmenu {
+    display: block;
+    top: 300px;
+    left: 300px;
+    margin-left: 5px; /* Odsunięcie od głównego submenu */
+}
+
+.subsubmenu {
+    display: none;
+    /* position: absolute; */
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 2;
+    min-width: 150px;
+}
+
+.login-btn, .signup-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+
+.login-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.signup-btn {
+    background-color: white;
+    color: #007bff;
+}
+
+.bold {
+    font-weight: bold;
+}
