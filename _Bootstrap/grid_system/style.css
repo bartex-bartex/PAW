@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[class*="col"] {
+    padding: 1rem;
+    background-color: #33b5e5;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.line-break {
+    background-color: green;
+    width: 100%;
+}
+
+.row {
+    border: 2px solid yellow;
+    margin: 20px 0px;
+}
