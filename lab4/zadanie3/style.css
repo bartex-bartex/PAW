@@ -1,0 +1,11 @@
+[class*="col"] {
+    padding: 1rem;
+    /* background-color: #33b5e5; */
+    /* border: 2px solid #fff; */
+    /* color: #fff; */
+}
+
+.menu {
+    background-image: url("https://picsum.photos/2000/300");
+    background-size: cover;
+}

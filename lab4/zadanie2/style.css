@@ -1,0 +1,26 @@
+[class*="col"] {
+    padding: 1rem;
+    background-color: #33b5e5;
+    border: 1px solid black;
+    color: #fff;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.content {
+    background-color: white;
+    color: black;
+    padding: 1rem 0 0.5rem 0.5rem;
+}
+
+.main-content {
+    background-color: white;
+    color: black;
+}
+
+.theme {
+    background-color: gray;
+    color: black;
+}
