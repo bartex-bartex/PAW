@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container, .back, .middle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            flex-direction: column;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            width: 25vw;
+            height: 25vw;
+        }
+
+        .back {
+            background-color: lightblue;
+            width: 25vw;
+            height: 25vw;
+        }
+        .middle {
+            background-color: #ff0000;
+            width: 75%;
+            height: 75%;
+        }
+        .top {
+            background-color: #00ff00;
+            width: 60%;
+            height: 60%;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="button-container">
+            <div class="back">
+                <div class="middle">
+                    <div class="top">
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="details">
+            <div class="detail-item">
+                <span class="label">Message:<br></span>
+                <span id="message"></span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Points:</span>
+                <span id="points">0</span>
+            </div>
+            <button id="alterPropagation">Propagation is active</button>
+            <button id="reset">Reset</button>
+            <button id="alterOrder">Change order</button>
+        </div>
+    </div>
+    
+    <script>
+        const backElement = document.querySelector('.back');
+        const middleElement = document.querySelector('.middle');
+        const topElement = document.querySelector('.top');
+        const buttonContainer = document.getElementById('button-container');
+
+        const propagationButton = document.getElementById('alterPropagation');
+        const resetButton = document.getElementById('reset');
+        const orderButton = document.getElementById('alterOrder');
+
+        let points = 0;
+        let isPropagation = true;
+        let isCapturing = false;
+
+        updateEventListeners();
+
+        function updateEventListeners(){
+            backElement.removeEventListener('click', backElementClick, !isCapturing);
+            middleElement.removeEventListener('click', middleElementClick, !isCapturing);
+            topElement.removeEventListener('click', topElementClick, !isCapturing);
+
+            backElement.addEventListener('click', backElementClick, isCapturing);
+            middleElement.addEventListener('click', middleElementClick, isCapturing);
+            topElement.addEventListener('click', topElementClick, isCapturing);
+        }
+        
+        buttonContainer.addEventListener('click', (e) => {
+            document.getElementById('message').innerText = '';
+        }, true);
+
+        // Button event listeners
+        propagationButton.addEventListener('click', (e) => {
+            isPropagation = !isPropagation;
+            propagationButton.innerText = isPropagation ? 'Propagation is active' : 'Propagation is INactive';
+        });
+
+        resetButton.addEventListener('click', (e) => {
+            points = 0;
+            isPropagation = true;
+            isCapturing = false;
+            updateEventListeners();
+            propagationButton.innerText = isPropagation ? 'Propagation is active' : 'Propagation is INactive';
+            document.getElementById('points').innerText = points;
+            document.getElementById('message').innerText = '';
+        });
+
+        orderButton.addEventListener('click', (e) => {
+            isCapturing = !isCapturing;
+
+            updateEventListeners();
+        });
+
+        // Event listeners methods
+        function backElementClick(e){
+            points += 1;
+            document.getElementById('message').innerText += 'Blue: Added 1 point\n';
+            document.getElementById('points').innerText = points;
+            
+            if (!isPropagation){
+                e.stopPropagation();
+            }
+        } 
+        
+        function middleElementClick(e){
+            if (points > 50){
+                return;
+            }
+
+            points += 2;
+            document.getElementById('message').innerText += 'Red: Added 2 points\n';
+            document.getElementById('points').innerText = points;
+
+            if (!isPropagation){
+                e.stopPropagation();
+            }
+        }
+
+        function topElementClick(e) {
+            if (points > 30){
+                return;
+            }
+
+            points += 5;
+            document.getElementById('message').innerText += 'Yellow: Added 5 points\n';
+            document.getElementById('points').innerText = points;
+
+            if (!isPropagation){
+                e.stopPropagation();
+            }
+        }
+    </script>
+</body>
+</html>

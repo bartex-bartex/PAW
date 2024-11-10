@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    
+        <section id="malopolska">
+            <h2>Miasta w województwie małopolskim</h2>
+        </section>
+        <section id="containsA">
+            <h2>Miasta zawierające w nazwie ciąg 'aa'</h2>
+        </section>
+        <section id="fifthDensityCity">
+            <h2>Piąte miasto o największej gęstości zaludnienia</h2>
+        </section>
+        <section id="addCitySuffix">
+            <h2>Dodanie sufiksu 'miasto' do miast z populacją powyżej 100 000</h2>
+        </section>
+        <section id="populationComparison">
+            <h2>Porównanie ilości miast o populacji większej i mniejszej od 80 000</h2>
+        </section>
+        <section id="averageArea">
+            <h2>Średnia powierzchnia miast na literę P</h2>
+        </section>
+        <section id="pomorskieCities">
+            <h2>Czy wszystkie miasta w woj. Pomorskim > 5000? Ile takich jest?</h2>
+        </section>
+          
+      </div>
+
+    <script>
+        fetch('city.json')
+            .then(response => response.json())
+            .then((data) => {
+                displayMalopolskaCities(data);
+                displayCitiesWithAA(data);
+                displayFifthDensityCity(data);
+                addCitySuffix(data);
+                comparePopulation(data);
+                avgAreaOfCitiesWithP(data);
+                getCitiesInPomorskieWithPopulationOver5000(data);
+            })
+            .catch(function() {
+                this.dataError = true;
+            });
+
+        function getCitiesInPomorskieWithPopulationOver5000(data){
+            const section = document.getElementById('pomorskieCities');
+
+            let pomorskieCities = data.filter(city => city.province === "pomorskie");
+            let allOver5000 = pomorskieCities.every(city => city.people > 5000);
+            let over5000 = pomorskieCities.filter(city => city.people > 5000).length;
+
+            const allOver5000TextNode = document.createTextNode("Wszystkie miasta w woj. Pomorskim mają populację większą od 5000: " + allOver5000);
+            const over5000TextNode = document.createTextNode("Ilość miast w woj. Pomorskim z populacją większą od 5000: " + over5000 + " z " + pomorskieCities.length);
+        
+            section.appendChild(allOver5000TextNode);
+            section.appendChild(document.createElement('br'));
+            section.appendChild(over5000TextNode);
+        }
+
+        function avgAreaOfCitiesWithP(data){
+            const section = document.getElementById('averageArea');
+
+            let citiesWithP = data.filter(city => city.name[0].toLowerCase() === 'p');
+            let avg = data.reduce((acc, pop) => acc + pop.area, 0) / citiesWithP.length;
+
+            const avgTextNode = document.createTextNode("Średnia powierzchnia miast na literę P: " + Math.round(avg));
+            section.appendChild(avgTextNode);
+        }
+
+        function comparePopulation(data){
+            const section = document.getElementById('populationComparison');
+
+            let lessThan80 = data.filter(city => city.people < 80000).length;
+            let moreThan80 = data.filter(city => city.people >= 80000).length;
+
+            const lessTextNode = document.createTextNode("Mniej niż 80 000: " + lessThan80);
+            const moreTextNode = document.createTextNode("Więcej niż 80 000: " + moreThan80);
+        
+            section.appendChild(lessTextNode);
+            section.appendChild(document.createElement('br'));
+            section.appendChild(moreTextNode);
+        }
+
+        function addCitySuffix(data){
+            const section = document.getElementById('addCitySuffix');
+            const ul = document.createElement('ul');
+            section.appendChild(ul);
+
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].people > 100000) {
+                    let li = document.createElement('li');
+                    li.textContent = data[i].name + " - miasto";
+                    ul.appendChild(li);
+                }
+            }
+        }
+
+        function displayFifthDensityCity(data){
+            const section = document.getElementById('fifthDensityCity');
+            const ul = document.createElement('ul');
+            section.appendChild(ul);
+
+            let sortedDensity = data.sort((a, b) => b.density - a.density);
+            let li = document.createElement('li');
+            li.textContent = sortedDensity[4].name;
+            ul.appendChild(li); 
+        }
+
+        function displayMalopolskaCities(data){
+            const section = document.getElementById('malopolska');
+            const ul = document.createElement('ul');
+            section.appendChild(ul);
+
+            for (let i = 0; i < data.length; i++) {
+                if(data[i].province === "małopolskie"){
+                    let li = document.createElement('li');
+                    li.textContent = data[i].name;
+                    ul.appendChild(li);
+                }
+            }
+        }
+
+        function displayCitiesWithAA(data){
+            const section = document.getElementById('containsA');
+            const ul = document.createElement('ul');
+            section.appendChild(ul);
+
+            for (let i = 0; i < data.length; i++) {
+                if(getCharacterCount(data[i].name, 'a') >= 2){
+                    let li = document.createElement('li');
+                    li.textContent = data[i].name;
+                    ul.appendChild(li);
+                }
+            }
+        }
+
+        function getCharacterCount(str, char){
+            let count = 0;
+            for (let i = 0; i < str.length; i++) {
+                if(str[i] === char){
+                    count++;
+                }
+            }
+            return count;
+        }
+    </script>
+</body>
+</html>
