@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            background-color: gray;
+        }
+        
+        .canvas {
+            margin: auto;
+            width: 500px;
+            height: 500px;
+            background-color: #f0f0f0;
+        }
+        
+        .circle {
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            border-radius: 50%;
+            transition: transform 0.5s ease;
+            /* transform: translate(50px, 50px); */
+        }
+
+        .message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="canvas">
+            <div class="circle"></div>
+        </div>
+        <div class="message"></div>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const canvas = document.querySelector('.canvas');
+        const circle = document.querySelector('.circle');
+        const message = document.querySelector('.message');
+    
+        // When circle is outside the canvas it is still canvas child, so clicking it will trigger canvas click event!
+        canvas.addEventListener('click', (e) => {
+            const x = e.clientX - canvas.offsetLeft - 20;
+            const y = e.clientY - canvas.offsetTop - 20;
+    
+            // TODO: how to do it properly?
+            // if (x < -20 || x > canvas.clientWidth - 20 || y < -20 || y > canvas.clientHeight - 20){
+            //     e.stopPropagation();
+            //     return;
+            // }
+
+            circle.style.transform = `translate(${x}px, ${y}px)`; // relative to parent container
+
+            e.stopPropagation();
+        });
+
+        container.addEventListener('click', (e) => {
+            const x = e.clientX - container.offsetLeft - message.offsetWidth / 2;
+            const y = e.clientY - container.offsetTop - message.offsetHeight / 2;
+
+            // TODO: how to do it properly?
+            // ...
+
+            message.textContent = `x: ${x}, y: ${y}`;
+            message.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+</html>
