@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .pagination {
+            margin-bottom: 15px;
+        }
+
+        .sort i {
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pagination">
+        <button class="btn-prev" id="prev">
+            <i class="bi bi-arrow-left"></i>
+        </button>
+        <button class="btn-next" id="next">
+            <i class="bi bi-arrow-right"></i>
+        </button>
+    </div>
+
+    <table class="main-table">
+        <thead id="mainTableHead">
+            <tr>
+                <th>
+                    <div class="header">
+                        Name
+                        <input type="text" class="search" data-search="name" placeholder="Search" />
+                        <button class="sort" data-sort="name">
+                            <i class="bi bi-arrow-down"></i>
+                        </button>
+                    </div>
+                </th>
+                <th>
+                    <div class="header">
+                        Capital
+                        <input type="text" class="search" data-search="capital" placeholder="Search" />
+                        <button class="sort" data-sort="capital">
+                            <i class="bi bi-arrow-down"></i>
+                        </button>
+                    </div>
+                </th>
+                <th>
+                    <div class="header">
+                        Population
+                        <input type="text" class="search" data-search="population" placeholder="Search" />
+                        <button class="sort" data-sort="population">
+                            <i class="bi bi-arrow-down"></i>
+                        </button>
+                    </div>
+                </th>
+                <th>
+                    <div class="header">
+                        Area
+                        <input type="text" class="search" data-search="area" placeholder="Search" />
+                        <button class="sort" data-sort="area">
+                            <i class="bi bi-arrow-down"></i>
+                        </button>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="mainTableBody">
+
+        </tbody>
+    </table>
+
+    <script type="module" src="scripts/main.js"></script>
+</body>
+
+</html>
