@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,9 @@
             box-sizing: border-box;
         }
 
-        .container, .back, .middle {
+        .container,
+        .back,
+        .middle {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -33,11 +36,13 @@
             width: 25vw;
             height: 25vw;
         }
+
         .middle {
             background-color: #ff0000;
             width: 75%;
             height: 75%;
         }
+
         .top {
             background-color: #00ff00;
             width: 60%;
@@ -49,32 +54,55 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div id="button-container">
             <div class="back">
                 <div class="middle">
                     <div class="top">
-        
+
                     </div>
                 </div>
             </div>
         </div>
         <div class="details">
-            <div class="detail-item">
-                <span class="label">Message:<br></span>
-                <span id="message"></span>
+            <button id="alterPropagation">Propagation is active</button>
+            <button id="reset">Reset</button>
+            <div id="propagationOrder">
+                Propagation order: <br>
+                <label>
+                    <input type="radio" name="option" value="1-2-3" checked>
+                    1-2-3
+                </label><br>
+
+                <label>
+                    <input type="radio" name="option" value="3-2-1">
+                    3-2-1
+                </label><br>
+
+                <label>
+                    <input type="radio" name="option" value="2-3-1">
+                    2-3-1
+                </label><br>
+
+                <label>
+                    <input type="radio" name="option" value="1-3-2">
+                    1-3-2
+                </label>
             </div>
+            <button id="clearLog">Clear log</button>
             <div class="detail-item">
                 <span class="label">Points:</span>
                 <span id="points">0</span>
             </div>
-            <button id="alterPropagation">Propagation is active</button>
-            <button id="reset">Reset</button>
-            <button id="alterOrder">Change order</button>
+            <div class="detail-item">
+                <span class="label">Message:<br></span>
+                <span id="message"></span>
+            </div>
         </div>
     </div>
-    
+
     <script>
         const backElement = document.querySelector('.back');
         const middleElement = document.querySelector('.middle');
@@ -83,29 +111,17 @@
 
         const propagationButton = document.getElementById('alterPropagation');
         const resetButton = document.getElementById('reset');
-        const orderButton = document.getElementById('alterOrder');
+        const orderContainer = document.getElementById('propagationOrder');
+        const clearLogButton = document.getElementById('clearLog');
 
         let points = 0;
         let isPropagation = true;
-        let isCapturing = false;
-
-        updateEventListeners();
-
-        function updateEventListeners(){
-            backElement.removeEventListener('click', backElementClick, !isCapturing);
-            middleElement.removeEventListener('click', middleElementClick, !isCapturing);
-            topElement.removeEventListener('click', topElementClick, !isCapturing);
-
-            backElement.addEventListener('click', backElementClick, isCapturing);
-            middleElement.addEventListener('click', middleElementClick, isCapturing);
-            topElement.addEventListener('click', topElementClick, isCapturing);
-        }
-        
-        buttonContainer.addEventListener('click', (e) => {
-            document.getElementById('message').innerText = '';
-        }, true);
 
         // Button event listeners
+        clearLogButton.addEventListener('click', (e) => {
+            document.getElementById('message').innerText = '';
+        });
+
         propagationButton.addEventListener('click', (e) => {
             isPropagation = !isPropagation;
             propagationButton.innerText = isPropagation ? 'Propagation is active' : 'Propagation is INactive';
@@ -114,32 +130,42 @@
         resetButton.addEventListener('click', (e) => {
             points = 0;
             isPropagation = true;
-            isCapturing = false;
-            updateEventListeners();
             propagationButton.innerText = isPropagation ? 'Propagation is active' : 'Propagation is INactive';
             document.getElementById('points').innerText = points;
             document.getElementById('message').innerText = '';
         });
 
-        orderButton.addEventListener('click', (e) => {
-            isCapturing = !isCapturing;
+        // Event listeners methods
+        buttonContainer.addEventListener('click', (e) => {
+            const order = document.querySelector('input[name="option"]:checked').value.split('-');
 
-            updateEventListeners();
+            for (let el of order) {
+                if (el === '1') {
+                    backElementClick(e);
+                } else if (el === '2') {
+                    middleElementClick(e);
+                } else if (el === '3') {
+                    topElementClick(e);
+                }
+
+                if (!isPropagation){
+                    break;
+                }
+            }
         });
 
-        // Event listeners methods
-        function backElementClick(e){
+        function backElementClick(e) {
             points += 1;
             document.getElementById('message').innerText += 'Blue: Added 1 point\n';
             document.getElementById('points').innerText = points;
-            
-            if (!isPropagation){
+
+            if (!isPropagation) {
                 e.stopPropagation();
             }
-        } 
-        
-        function middleElementClick(e){
-            if (points > 50){
+        }
+
+        function middleElementClick(e) {
+            if (points > 50) {
                 return;
             }
 
@@ -147,13 +173,13 @@
             document.getElementById('message').innerText += 'Red: Added 2 points\n';
             document.getElementById('points').innerText = points;
 
-            if (!isPropagation){
+            if (!isPropagation) {
                 e.stopPropagation();
             }
         }
 
         function topElementClick(e) {
-            if (points > 30){
+            if (points > 30) {
                 return;
             }
 
@@ -161,10 +187,11 @@
             document.getElementById('message').innerText += 'Yellow: Added 5 points\n';
             document.getElementById('points').innerText = points;
 
-            if (!isPropagation){
+            if (!isPropagation) {
                 e.stopPropagation();
             }
         }
     </script>
 </body>
+
 </html>

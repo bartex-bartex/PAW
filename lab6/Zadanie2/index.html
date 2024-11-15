@@ -22,15 +22,14 @@
             display: flex;
             flex-direction: column;
             padding: 20px;
+            background-color: white;
         }
 
         .item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: white;
             padding: 15px;
-            margin: 0 10% 15px 10%;
         }
 
         .details {
@@ -40,130 +39,99 @@
 
         .form {
             display: flex;
-            margin: 0 10%;
+            align-items: center;
             padding: 10px;
             background-color: white;
         }
 
-        .form input {
+
+        .form * {
             margin-right: 10px;
         }
 
-        .name {
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+
+        .hidden {
+            display: none;
+        }
+
+        ul {
+            list-style-type: none;
             font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 5px;
+        }
+
+        .important {
+            color: red;
+        }
+
+        .inactive {
+            text-decoration: line-through;
         }
     </style>
 </head>
 
 <body>
-    <!-- Templates are great -->
-    <template id="item-template">
-        <div class="item">
-            <div class="details">
-                <span class="name"></span>
-                <span class="phone-number"></span>
-            </div>
-            <button class="btn btn-info btn-bin">
-                <i class="fa-solid fa-recycle"></i>
-            </button>
-        </div>
-    </template>
-
     <div class="container">
-        <div class="item">
-            <div class="details">
-                <span class="name">Jan Kowalski</span>
-                <span class="phone-number">123456789</span>
-            </div>
-            <button class="btn btn-info btn-bin">
-                <i class="fa-solid fa-recycle"></i>
-            </button>
+        <div class="header">
+            <h1>Shopping List App</h1>
+            <button id="btn-show-form" class="btn btn-primary">Add new item</button>
         </div>
-        <div class="form">
-            <input type="text" id="name-input" class="form-control" placeholder="Name">
-            <input type="text" id="phone-number-input" class="form-control" placeholder="Phone number">
-            <button id="btn-add" class="btn btn-primary">Add</button>
+        <div id="form" class="form hidden">
+            <input type="text" id="item-input" class="form-control" placeholder="Add an Item">
+            <input type="checkbox" id="checkbox-input">
+            <label for="checkbox-input">High Priority</label>
+            <button id="btn-add" class="btn btn-primary">Save item</button>
         </div>
+        <ul id="list">
+
+        </ul>
     </div>
 
     <script>
-        const container = document.querySelector('.container');
-        container.addEventListener('click', (e) => {
-            if (e.target.classList.contains('btn-bin') || e.target.classList.contains('fa-recycle')) {
-                e.target.closest('.item').remove();
+        let isEditable = false;
+
+        // Add item to shopping list
+        const addItemButton = document.getElementById('btn-add');
+        addItemButton.addEventListener('click', () => {
+            const isPriority = document.getElementById('checkbox-input').checked;
+            const name = document.getElementById('item-input').value;
+            const ul = document.getElementById('list');
+
+            const li = document.createElement('li');
+            li.textContent = name;
+            if (isPriority) {
+                li.classList.add('important');
             }
+            ul.appendChild(li);
+
+            document.getElementById('item-input').value = '';
         });
 
-        const buttonAdd = document.getElementById('btn-add');
-        buttonAdd.addEventListener('click', () => {
-            const name = document.getElementById('name-input').value;
-            const phoneNumber = document.getElementById('phone-number-input').value;
-
-            if (!isNameValid(name)) {
-                alert('Invalid name');
-                return;
-            }
-
-            if (!isPhoneNumberValid(phoneNumber)) {
-                alert('Invalid phone number');
-                return;
-            }
-
-            /* Approach 1 -> very COMPLICATED */
-            // const details = document.createElement('div');
-            // details.classList.add('details');
-            // nameSpan = document.createElement('span')
-            // nameSpan.classList.add('name');
-            // phoneNumberSpan = document.createElement('span');
-            // phoneNumberSpan.classList.add('phone-number');
-            // details.appendChild(nameSpan).textContent = name;
-            // details.appendChild(phoneNumberSpan).textContent = phoneNumber;
-
-            // const button = document.createElement('button');
-            // button.classList.add('btn', 'btn-info', 'btn-bin');
-            // button.innerHTML = '<i class="fa-solid fa-recycle"></i>';
-
-            // const item = document.createElement('div');
-            // item.classList.add('item');
-            // item.appendChild(details);
-            // item.appendChild(button);
-
-            // document.querySelector('.container').insertBefore(item, document.querySelector('.form'));
-
-            /* Approach 2 -> much SIMPLER */
-            // const item = document.createElement('div');
-            // item.classList.add('item');
-            // item.innerHTML = `
-            //     <div class="details">
-            //         <span class="name">${name}</span>
-            //         <span class="phone-number">${phoneNumber}</span>
-            //     </div>
-            //     <button class="btn btn-info btn-bin">
-            //         <i class="fa-solid fa-recycle"></i>
-            //     </button>
-            // `;
-            // document.querySelector('.container').insertBefore(item, document.querySelector('.form'));
-
-            /* Approach 3 -> THE CLEANEST | <template> */
-            const itemTemp = document.getElementById('item-template');
-            const container = document.querySelector('.container');
-            const form = document.querySelector('.form');
-
-            const item = itemTemp.content.cloneNode(true);
-            item.querySelector('.name').textContent = name;
-            item.querySelector('.phone-number').textContent = phoneNumber;
-            container.insertBefore(item, form);
+        // Show form
+        const addFormButton = document.getElementById('btn-show-form');
+        addFormButton.addEventListener('click', () => {
+            const form = document.getElementById('form');
+            form.classList.toggle('hidden');
+            isEditable = !isEditable;
+            addFormButton.classList.toggle('btn-danger');
+            addFormButton.textContent = form.classList.contains('hidden') ? 'Add new item' : 'Cancel';
+            document.getElementById('item-input').value = '';
         });
-        
-        function isPhoneNumberValid(phoneNumber) {
-            return /^(\+?\d{3}\s)?((\d{2}\s){4}\d|\d{4}\s\d{5})$/.test(phoneNumber);
-        }
-        
-        function isNameValid(name) {
-            return /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż-]*([ ]?[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż-]*)*$/.test(name);
-        }
+
+        // UL click event
+        const ul = document.getElementById('list');
+        ul.addEventListener('click', (e) => {
+            if (isEditable) {
+                const item = e.target;
+                item.classList.toggle('inactive');
+            }
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
