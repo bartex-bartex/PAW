@@ -6,189 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 20%;
-            background-color: white;
-            z-index: 2;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(3px);
-            z-index: 1;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: start;
-            gap: 1rem;
-            background-color: lightgray;
-        }
-
-        img {
-            cursor: pointer;
-        }
-
-        button {
-            cursor: pointer;
-            border: none;
-            font-weight: 600;
-        }
-
-        .btn-close {
-            position: absolute;
-            top: 25px;
-            right: 20px;
-            transform: translate(10px, -20px);
-            padding: 0.5rem 0.7rem;
-            background: #eee;
-            border-radius: 50%;
-        }
-
-        .navigation {
-            width: 100%;
-            display: flex;
-            justify-content:space-evenly;
-        }
-
-        .navigation button {
-            padding: 0.5rem 1rem;
-            background: lightgray;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="gallery">
-        <img src="https://picsum.photos/id/237/200/300" alt="random" />
-        <img src="https://picsum.photos/id/238/200/300" alt="random" />
-        <img src="https://picsum.photos/id/239/200/300" alt="random" />
-        <img src="https://picsum.photos/id/240/200/300" alt="random" />
-        <img src="https://picsum.photos/id/241/200/300" alt="random" />
-        <img src="https://picsum.photos/id/242/200/300" alt="random" />
-        <img src="https://picsum.photos/id/243/200/300" alt="random" />
-        <img src="https://picsum.photos/id/244/200/300" alt="random" />
-        <img src="https://picsum.photos/id/247/200/300" alt="random" />
-        <img src="https://picsum.photos/id/248/200/300" alt="random" />
-        <img src="https://picsum.photos/id/249/200/300" alt="random" />
-        <img src="https://picsum.photos/id/250/200/300" alt="random" />
-        <img src="https://picsum.photos/id/251/200/300" alt="random" />
-        <img src="https://picsum.photos/id/252/200/300" alt="random" />
-        <img src="https://picsum.photos/id/253/200/300" alt="random" />
-        <img src="https://picsum.photos/id/254/200/300" alt="random" />
-        <img src="https://picsum.photos/id/255/200/300" alt="random" />
-        <img src="https://picsum.photos/id/256/200/300" alt="random" />
+    <div class="game hidden" id = "game">
+        <canvas id="gameCanvas"></canvas>
+
+        <div class ="lives-box">
+            Lives: <span id="lives">3</span>
+        </div>
+
+        <div class = "details">
+            Your nick: <span id ="nick"></span> <br>
+            Score: <span id = "score">0</span>
+        </div>
+
+        <div id = "cursor">
+            <div id = "red"></div>
+        </div>
+   </div>
+
+    <div class="modal" id='modalStart'>
+        <h1> Welcome in "Zombie Farm"! </h1>
+        <h2> Input your nickname: </h2>
+        <input type="text" id="username" name="username">
+        <button class="button" id="btnStart"> START </button>
     </div>
 
-    <section class="modal hidden">
-        <button class="btn-close">
-            ⨉
-        </button>
-        <img src="https://picsum.photos/id/237/200/300" alt="random" />
-        <div class="navigation">
-            <button class="btn-prev">
-                <i class="bi bi-arrow-left"></i>
-            </button>
-            <button class="btn-next">
-                <i class="bi bi-arrow-right"></i>
-            </button>
-        </div>
-    </section>
-    <div class="overlay hidden"></div>
 
-    <script>
-        // Modal window
-        const modal = document.querySelector(".modal");
-        const overlay = document.querySelector(".overlay");
-        const closeModalBtn = document.querySelector(".btn-close");
+    <div class="modal hidden" id='modalEnd'>
+        <h1> Game over </h1>
+        <h2> Highscores</h2>
+        <ul class="score" id="standings">
 
-        const openModal = function () {
-            modal.classList.remove("hidden");
-            overlay.classList.remove("hidden");
-        };
-
-        const closeModal = function () {
-            modal.classList.add("hidden");
-            overlay.classList.add("hidden");
-        };
-        closeModalBtn.addEventListener("click", closeModal);
-        overlay.addEventListener("click", closeModal);
-
-        // Gallery
-        const gallery = document.querySelector(".gallery");
-        const images = document.querySelectorAll("img");
-        const image = modal.querySelector("img");
-
-        gallery.addEventListener("click", function (e) {
-            if (e.target.tagName === "IMG") {
-                image.src = e.target.src;
-
-                openModal();
-            }
-        });
-
-        // Navigation
-        const btnPrev = modal.querySelector(".btn-prev");
-        const btnNext = modal.querySelector(".btn-next");
-
-        btnPrev.addEventListener("click", function () {
-            const currentImage = image.src;
-            const currentImageIndex = Array.from(images).findIndex(
-                (img) => img.src === currentImage
-            );
-
-            if (currentImageIndex === 0) {
-                image.src = images[images.length - 1].src;
-            } else {
-                image.src = images[currentImageIndex - 1].src;
-            }
-        });
-
-        btnNext.addEventListener("click", function () {
-            const currentImage = image.src;
-            const currentImageIndex = Array.from(images).findIndex(
-                (img) => img.src === currentImage
-            );
-
-            if (currentImageIndex === images.length - 1) {
-                image.src = images[0].src;
-            } else {
-                image.src = images[currentImageIndex + 1].src;
-            }
-        });
-
-    </script>
+        </ul>
+        <button id="playAgain"> PLAY AGAIN </button>
+    </div>
+    <script src="main.js"></script>
 </body>
 
 </html>
