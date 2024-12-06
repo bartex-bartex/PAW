@@ -1,0 +1,100 @@
+{
+  "animals": [
+    {
+      "id": "1",
+      "name": "Burek",
+      "favorite": false,
+      "category": "1",
+      "age": 33,
+      "weight": 15,
+      "favoriteFood": "Kość"
+    },
+    {
+      "id": "2",
+      "name": "Miau",
+      "favorite": true,
+      "category": "2",
+      "age": 2,
+      "weight": 5,
+      "favoriteFood": "Ryba"
+    },
+    {
+      "id": "3",
+      "name": "test",
+      "favourite": false,
+      "category": "1",
+      "age": 1,
+      "weight": 1,
+      "favoriteFood": "afewaf",
+      "favorite": true
+    },
+    {
+      "id": "4",
+      "name": "awef",
+      "favourite": false,
+      "category": "1",
+      "age": 1230,
+      "weight": 123,
+      "favoriteFood": "gsdg",
+      "favorite": false
+    },
+    {
+      "id": "5",
+      "name": "aewgaw",
+      "favorite": false,
+      "category": "2",
+      "age": 2,
+      "weight": 231,
+      "favoriteFood": "gaeerg"
+    },
+    {
+      "id": "6",
+      "name": "awf",
+      "favorite": false,
+      "category": "1",
+      "age": 1,
+      "weight": 1,
+      "favoriteFood": "fawef"
+    },
+    {
+      "id": 0,
+      "name": "Bartek",
+      "isFavorite": false,
+      "category": "",
+      "age": 4,
+      "weight": 45,
+      "favoriteFood": ""
+    },
+    {
+      "id": 0,
+      "name": "Krzysiek",
+      "isFavorite": false,
+      "category": "",
+      "age": 89,
+      "weight": 12,
+      "favoriteFood": ""
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Pies"
+    },
+    {
+      "id": "2",
+      "name": "Kot"
+    },
+    {
+      "id": "3",
+      "name": "test"
+    },
+    {
+      "id": "4",
+      "name": "testa"
+    },
+    {
+      "id": "5",
+      "name": "trgrtrg"
+    }
+  ]
+}
