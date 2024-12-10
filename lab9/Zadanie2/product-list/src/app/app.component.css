@@ -1,44 +1,86 @@
-.categories-container {
-    padding: 1rem;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin: 0.5rem 0;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-label {
+/* Container for the two sections side by side */
+.container {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-input {
-    margin-right: 0.5rem;
+/* Section for the menu */
+.menu-section {
+    width: 45%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Section for the main content */
+.main-section {
+    width: 45%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Style the h1 headers */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Style for checkboxes */
+label {
+    display: block;
+    margin-bottom: 10px;
 }
 
 button {
-    margin-left: 1rem;
-    background-color: #6200ea;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #007bff;
     color: white;
     border: none;
-    padding: 0.2rem 0.5rem;
     border-radius: 4px;
-    cursor: pointer;
 }
 
 button:hover {
-    background-color: #3700b3;
+    background-color: #0056b3;
 }
 
-ul>li>ul {
-    margin-top: 0.5rem;
-    padding-left: 1rem;
-    border-left: 1px solid #ddd;
+
+.category-item {
+    display: flex;
+    align-items: center;
+    /* Vertically align the checkbox and button */
+    gap: 10px;
+    /* Space between the checkbox and the button */
+    margin-bottom: 10px;
+    /* Optional: Space between each category */
+}
+
+.category-item label {
+    margin: 0;
+    /* Remove any default margin around the label */
+}
+
+.category-item button {
+    margin-left: 10px;
+    /* Optional: Space between the checkbox and the button */
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.category-item button:hover {
+    background-color: #0056b3;
 }

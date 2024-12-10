@@ -1,26 +1,37 @@
-<div *ngFor="let category of categories()">
-  <label>
-    <input 
-      type="checkbox" 
-      [checked]="isCategorySelected(category)" 
-      [disabled]="isCategoryExpanded(category)" 
-      (change)="toggleCategorySelection(category)">
-    {{ category }}
-  </label>
+<div class="container">
+  <div class="menu-section">
+    <h1>Sekcja menu</h1>
+    <div *ngFor="let category of categories()">
+      <div class="category-item">
+        <label>
+          <input type="checkbox" [checked]="isCategorySelected(category)"
+            (change)="toggleCategorySelection(category)">
+          {{ category }}
+        </label>
+      
+        <button (click)="toggleCategoryExpansion(category)">
+          {{ isCategoryExpanded(category) ? 'Collapse' : 'Expand' }}
+        </button>
+      </div>
 
-  <button (click)="toggleCategoryExpansion(category)">
-    {{ isCategoryExpanded(category) ? 'Collapse' : 'Expand' }}
-  </button>
+      <ul *ngIf="isCategoryExpanded(category)">
+        <li *ngFor="let product of products(category)">
+          <label>
+            <input type="checkbox" [checked]="isProductSelected(category, product)"
+              (change)="toggleProductSelection(category, product)">
+            {{ product }}
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-  <ul *ngIf="isCategoryExpanded(category)">
-    <li *ngFor="let product of products(category)">
-      <label>
-        <input 
-          type="checkbox" 
-          [checked]="isProductSelected(category, product)" 
-          (change)="toggleProductSelection(category, product)">
+  <div class="main-section">
+    <h1>Sekcja Główna</h1>
+    <ul>
+      <li *ngFor="let product of getAllSelectedProducts()">
         {{ product }}
-      </label>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </div>

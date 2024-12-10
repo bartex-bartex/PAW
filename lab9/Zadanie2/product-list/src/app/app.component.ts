@@ -44,9 +44,9 @@ export class AppComponent implements OnInit {
   }
 
   toggleCategorySelection(category: string): void {
-    if (this.expandedCategories.has(category)) {
-      return; // Don't allow toggling if category is expanded
-    }
+    // if (this.expandedCategories.has(category)) {
+    //   return; // Don't allow toggling if category is expanded
+    // }
 
     if (this.selectedCategories.has(category)) {
       this.selectedCategories.delete(category);
@@ -83,5 +83,16 @@ export class AppComponent implements OnInit {
 
   isProductSelected(category: string, product: string): boolean {
     return this.selectedProducts[category]?.has(product);
+  }
+
+  // New method to get all selected products
+  getAllSelectedProducts(): string[] {
+    const selectedProductsArray: string[] = [];
+    Object.keys(this.selectedProducts).forEach(category => {
+      this.selectedProducts[category].forEach(product => {
+        selectedProductsArray.push(product);
+      });
+    });
+    return selectedProductsArray;
   }
 }
