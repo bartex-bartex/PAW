@@ -1,4 +1,4 @@
-<div class="product-list">
+<!-- <div class="product-list">
   <h1>Product Categories</h1>
   <div *ngIf="categories().length > 0; else noData">
     <div *ngFor="let category of categories()">
@@ -13,4 +13,39 @@
   <ng-template #noData>
     <p>No data available</p>
   </ng-template>
+</div> -->
+
+<div class="categories-container">
+  <ul>
+    <!-- List of categories -->
+    <li *ngFor="let category of categories()">
+      <label>
+        <input
+          type="checkbox"
+          [checked]="isCategorySelected(category)"
+          (change)="toggleCategorySelection(category)"
+        />
+        {{ category }}
+      </label>
+
+      <button (click)="toggleCategoryExpansion(category)">
+        {{ isCategoryExpanded(category) ? 'Zwiń' : 'Rozwiń' }}
+      </button>
+
+      <!-- Expanded products list -->
+      <ul *ngIf="isCategoryExpanded(category)">
+        <li *ngFor="let product of products(category)">
+          <label>
+            <input
+              type="checkbox"
+              [checked]="isProductSelected(product)"
+              (change)="toggleProductSelection(product)"
+            />
+            {{ product }}
+          </label>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
+

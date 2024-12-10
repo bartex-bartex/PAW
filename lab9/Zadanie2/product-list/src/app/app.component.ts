@@ -10,6 +10,10 @@ import { CommonModule } from '@angular/common'
 })
 export class AppComponent implements OnInit {
   data: Products = {};
+
+  expandedCategories: Set<string> = new Set(); // Tracks expanded categories
+  selectedCategories: Set<string> = new Set(); // Tracks selected categories
+  selectedProducts: Set<string> = new Set(); // Tracks selected products
   
   constructor(private productService: ProductService) { }
 
@@ -19,6 +23,42 @@ export class AppComponent implements OnInit {
 
   products(category: string): string[] {
     return this.data[category].map((product) => product.name);
+  }
+  
+  toggleCategoryExpansion(category: string): void {
+    if (this.expandedCategories.has(category)) {
+      this.expandedCategories.delete(category);
+    } else {
+      this.expandedCategories.add(category);
+    }
+  }
+
+  toggleCategorySelection(category: string): void {
+    if (this.selectedCategories.has(category)) {
+      this.selectedCategories.delete(category);
+    } else {
+      this.selectedCategories.add(category);
+    }
+  }
+
+  toggleProductSelection(product: string): void {
+    if (this.selectedProducts.has(product)) {
+      this.selectedProducts.delete(product);
+    } else {
+      this.selectedProducts.add(product);
+    }
+  }
+
+  isCategoryExpanded(category: string): boolean {
+    return this.expandedCategories.has(category);
+  }
+
+  isCategorySelected(category: string): boolean {
+    return this.selectedCategories.has(category);
+  }
+
+  isProductSelected(product: string): boolean {
+    return this.selectedProducts.has(product);
   }
 
   ngOnInit(): void {
