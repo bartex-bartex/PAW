@@ -84,3 +84,17 @@ button:hover {
 .category-item button:hover {
     background-color: #0056b3;
 }
+
+/* Add styles for filter input */
+input#categoryFilter {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input#categoryFilter:focus {
+    border-color: #007bff;
+  }
+  

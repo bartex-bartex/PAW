@@ -1,7 +1,12 @@
+<div>
+  <label for="categoryFilter">Filter Categories (comma-separated): </label>
+  <input id="categoryFilter" type="text" [(ngModel)]="filterText" (ngModelChange)="onFilterChange()" placeholder="Type categories to filter">
+</div>
+
 <div class="container">
   <div class="menu-section">
     <h1>Sekcja menu</h1>
-    <div *ngFor="let category of categories()">
+    <div *ngFor="let category of filteredCategories()">
       <div class="category-item">
         <label>
           <input type="checkbox" [checked]="isCategorySelected(category)"
