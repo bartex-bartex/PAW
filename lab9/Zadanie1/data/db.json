@@ -2,99 +2,70 @@
   "animals": [
     {
       "id": "1",
-      "name": "Burek",
-      "favorite": false,
+      "name": "Rex",
+      "favorite": true,
       "category": "1",
-      "age": 33,
-      "weight": 15,
-      "favoriteFood": "Kość"
+      "age": 5,
+      "weight": 20,
+      "favoriteFood": "Bone"
     },
     {
       "id": "2",
-      "name": "Miau",
-      "favorite": true,
+      "name": "Whiskers",
+      "favorite": false,
       "category": "2",
-      "age": 2,
-      "weight": 5,
-      "favoriteFood": "Ryba"
+      "age": 3,
+      "weight": 4,
+      "favoriteFood": "Fish"
     },
     {
       "id": "3",
-      "name": "test",
-      "favourite": false,
+      "name": "Buddy",
+      "favorite": false,
       "category": "1",
-      "age": 1,
-      "weight": 1,
-      "favoriteFood": "afewaf",
-      "favorite": true
+      "age": 2,
+      "weight": 10,
+      "favoriteFood": "Chicken"
     },
     {
       "id": "4",
-      "name": "awef",
-      "favourite": false,
-      "category": "1",
-      "age": 1230,
-      "weight": 123,
-      "favoriteFood": "gsdg",
-      "favorite": false
+      "name": "Bella",
+      "favorite": true,
+      "category": "3",
+      "age": 6,
+      "weight": 15,
+      "favoriteFood": "Carrots"
     },
     {
       "id": "5",
-      "name": "aewgaw",
-      "favorite": false,
+      "name": "Max",
+      "favorite": true,
       "category": "2",
-      "age": 2,
-      "weight": 231,
-      "favoriteFood": "gaeerg"
-    },
-    {
-      "id": "6",
-      "name": "awf",
-      "favorite": false,
-      "category": "1",
-      "age": 1,
-      "weight": 1,
-      "favoriteFood": "fawef"
-    },
-    {
-      "id": 0,
-      "name": "Bartek",
-      "isFavorite": false,
-      "category": "",
       "age": 4,
-      "weight": 45,
-      "favoriteFood": ""
-    },
-    {
-      "id": 0,
-      "name": "Krzysiek",
-      "isFavorite": false,
-      "category": "",
-      "age": 89,
-      "weight": 12,
-      "favoriteFood": ""
+      "weight": 6,
+      "favoriteFood": "Tuna"
     }
   ],
   "categories": [
     {
       "id": "1",
-      "name": "Pies"
+      "name": "Dog"
     },
     {
       "id": "2",
-      "name": "Kot"
+      "name": "Cat"
     },
     {
       "id": "3",
-      "name": "test"
+      "name": "Rabbit"
     },
     {
       "id": "4",
-      "name": "testa"
+      "name": "Hamster"
     },
     {
       "id": "5",
-      "name": "trgrtrg"
+      "name": "Bird"
     }
   ]
 }

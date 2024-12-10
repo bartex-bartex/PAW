@@ -7,16 +7,8 @@ import { Pet } from '../../models/pet.model';
   selector: 'app-pet-list',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div>
-      <h3>Pet List</h3>
-      <ul>
-        <li *ngFor="let pet of pets">
-          {{ pet.name }} ({{ pet.category }})
-        </li>
-      </ul>
-    </div>
-  `
+  templateUrl: './pet-list.component.html',
+  styleUrls: ['./pet-list.component.css']
 })
 export class PetListComponent implements OnInit {
   pets: Pet[] = [];
