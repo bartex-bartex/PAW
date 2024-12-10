@@ -1,6 +1,6 @@
 <div>
   <label for="categoryFilter">Filter Categories (comma-separated): </label>
-  <input id="categoryFilter" type="text" [(ngModel)]="filterText" (ngModelChange)="onFilterChange()" placeholder="Type categories to filter">
+  <input id="categoryFilter" type="text" [(ngModel)]="filterText" (input)="onFilterChange()" placeholder="Type categories to filter">
 </div>
 
 <div class="container">

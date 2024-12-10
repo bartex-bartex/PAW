@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   selectedCategories: Set<string> = new Set(); // Tracks selected categories
   selectedProducts: { [category: string]: Set<string> } = {}; // Tracks selected products by category
   filterText: string = ''; // Text entered in filter input
+  currFilterText: string = ''; // Current filter text
   private filterSubject: Subject<string> = new Subject(); // Subject for filtering debounce
   
   constructor(private productService: ProductService) { }
@@ -32,16 +33,17 @@ export class AppComponent implements OnInit {
 
     // Subscribe to filter changes with debounce
     this.filterSubject.pipe(debounceTime(500)).subscribe((filterText) => {
-      this.filterText = filterText;
+      console.log('Filtering with text:', this.currFilterText);
+      this.currFilterText = filterText;
     });
   }
-  
+
   // Filtered categories based on the input text
   filteredCategories(): string[] {
-    if (!this.filterText) return this.categories(); // If no filter text, show all categories
-    const filterWords = this.filterText.toLowerCase().split(',').map((item) => item.trim());
+    if (!this.currFilterText) return this.categories(); // If no filter text, show all categories
+    const filterWords = this.currFilterText.toLowerCase().split(',').map((item) => item.trim());
     return this.categories().filter((category) =>
-      filterWords.some((word) => category.toLowerCase().startsWith(word))
+      filterWords.some((word) => category.toLowerCase() === word)
     );
   }
 
