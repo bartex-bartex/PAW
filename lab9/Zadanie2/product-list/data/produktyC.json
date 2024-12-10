@@ -1,0 +1,83 @@
+{
+    "Sweets": [
+      { "name": "Czekolada" },
+      { "name": "Cukierki" },
+      { "name": "Baton" },
+      { "name": "Ciastka" },
+      { "name": "Pączki" },
+      { "name": "Babeczki" }
+    ],
+    "Cars": [
+      { "name": "Fiat" },
+      { "name": "BMW" },
+      { "name": "Porsche" },
+      { "name": "Mazda" },
+      { "name": "Nissan" },
+      { "name": "Jeep" }
+    ],
+    "Bikes": [
+      { "name": "Mountain" },
+      { "name": "Road" },
+      { "name": "Hybrid" },
+      { "name": "Kids" },
+      { "name": "Electric" },
+      { "name": "Folding" }
+    ],
+    "Clothes": [
+      { "name": "Shirt" },
+      { "name": "Pants" },
+      { "name": "Sweater" },
+      { "name": "Shorts" },
+      { "name": "Jacket" },
+      { "name": "Shoes" }
+    ],
+    "Drinks": [
+      { "name": "Water" },
+      { "name": "Tea" },
+      { "name": "Juice" },
+      { "name": "Wine" },
+      { "name": "Beer" },
+      { "name": "Soda" }
+    ],
+    "Furniture": [
+      { "name": "Chair" },
+      { "name": "Table" },
+      { "name": "Sofa" },
+      { "name": "Bed" },
+      { "name": "Cabinet" },
+      { "name": "Mirror" }
+    ],
+    "Toys": [
+      { "name": "Lego" },
+      { "name": "Car" },
+      { "name": "Robot" },
+      { "name": "Ball" },
+      { "name": "Kite" },
+      { "name": "Yo-Yo" }
+    ],
+    "Tools": [
+      { "name": "Hammer" },
+      { "name": "Wrench" },
+      { "name": "Screwdriver" },
+      { "name": "Level" },
+      { "name": "Tape Measure" },
+      { "name": "Toolbox" }
+    ],
+    "Music": [
+      { "name": "Guitar" },
+      { "name": "Piano" },
+      { "name": "Drums" },
+      { "name": "Trumpet" },
+      { "name": "Trombone" },
+      { "name": "Clarinet" }
+    ],
+    "Shoes": [
+      { "name": "Sneakers" },
+      { "name": "Boots" },
+      { "name": "Sandals" },
+      { "name": "Espadrilles" },
+      { "name": "Flip Flops" },
+      { "name": "Slippers" }
+    ]
+  }
+  

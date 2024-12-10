@@ -1,0 +1,83 @@
+{
+    "Sweets": [
+      { "name": "Czekolada" },
+      { "name": "Cukierki" },
+      { "name": "Baton" },
+      { "name": "Miód" },
+      { "name": "Pierniki" },
+      { "name": "Krówki" }
+    ],
+    "Cars": [
+      { "name": "Fiat" },
+      { "name": "BMW" },
+      { "name": "Tesla" },
+      { "name": "Honda" },
+      { "name": "Chevrolet" },
+      { "name": "Kia" }
+    ],
+    "Sports": [
+      { "name": "Soccer" },
+      { "name": "Basketball" },
+      { "name": "Tennis" },
+      { "name": "Baseball" },
+      { "name": "Running" },
+      { "name": "Cycling" }
+    ],
+    "Music": [
+      { "name": "Guitar" },
+      { "name": "Piano" },
+      { "name": "Drums" },
+      { "name": "Violin" },
+      { "name": "Flute" },
+      { "name": "Saxophone" }
+    ],
+    "Electronics": [
+      { "name": "Laptop" },
+      { "name": "Smartphone" },
+      { "name": "Smartwatch" },
+      { "name": "Earphones" },
+      { "name": "Printer" },
+      { "name": "Camera" }
+    ],
+    "Tools": [
+      { "name": "Hammer" },
+      { "name": "Drill" },
+      { "name": "Saw" },
+      { "name": "Wrench" },
+      { "name": "Screwdriver" },
+      { "name": "Pliers" }
+    ],
+    "Games": [
+      { "name": "Chess" },
+      { "name": "Checkers" },
+      { "name": "Go" },
+      { "name": "Scrabble" },
+      { "name": "Monopoly" },
+      { "name": "Risk" }
+    ],
+    "Shoes": [
+      { "name": "Sneakers" },
+      { "name": "Boots" },
+      { "name": "Sandals" },
+      { "name": "Crocs" },
+      { "name": "Moccasins" },
+      { "name": "Clogs" }
+    ],
+    "Gardening": [
+      { "name": "Shovel" },
+      { "name": "Rake" },
+      { "name": "Hoe" },
+      { "name": "Gloves" },
+      { "name": "Pruners" },
+      { "name": "Hose" }
+    ],
+    "Bikes": [
+      { "name": "Mountain" },
+      { "name": "Road" },
+      { "name": "Touring" },
+      { "name": "Kids" },
+      { "name": "Folding" },
+      { "name": "Cargo" }
+    ]
+  }
+  

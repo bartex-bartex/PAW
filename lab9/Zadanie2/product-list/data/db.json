@@ -1,0 +1,430 @@
+{
+  "products": {
+    "Sweets": [
+      {
+        "name": "Czekolada"
+      },
+      {
+        "name": "Cukierki"
+      },
+      {
+        "name": "Baton"
+      },
+      {
+        "name": "Lizak"
+      },
+      {
+        "name": "Gumy"
+      },
+      {
+        "name": "Wafle"
+      },
+      {
+        "name": "Miód"
+      },
+      {
+        "name": "Pierniki"
+      },
+      {
+        "name": "Krówki"
+      },
+      {
+        "name": "Ciastka"
+      },
+      {
+        "name": "Pączki"
+      },
+      {
+        "name": "Babeczki"
+      }
+    ],
+    "Cars": [
+      {
+        "name": "Fiat"
+      },
+      {
+        "name": "BMW"
+      },
+      {
+        "name": "Mercedes"
+      },
+      {
+        "name": "Toyota"
+      },
+      {
+        "name": "Audi"
+      },
+      {
+        "name": "Volkswagen"
+      },
+      {
+        "name": "Tesla"
+      },
+      {
+        "name": "Honda"
+      },
+      {
+        "name": "Chevrolet"
+      },
+      {
+        "name": "Kia"
+      },
+      {
+        "name": "Porsche"
+      },
+      {
+        "name": "Mazda"
+      },
+      {
+        "name": "Nissan"
+      },
+      {
+        "name": "Jeep"
+      }
+    ],
+    "Electronics": [
+      {
+        "name": "Laptop"
+      },
+      {
+        "name": "Smartphone"
+      },
+      {
+        "name": "Tablet"
+      },
+      {
+        "name": "Monitor"
+      },
+      {
+        "name": "Mouse"
+      },
+      {
+        "name": "Keyboard"
+      },
+      {
+        "name": "Smartwatch"
+      },
+      {
+        "name": "Earphones"
+      },
+      {
+        "name": "Printer"
+      },
+      {
+        "name": "Camera"
+      }
+    ],
+    "Furniture": [
+      {
+        "name": "Chair"
+      },
+      {
+        "name": "Table"
+      },
+      {
+        "name": "Sofa"
+      },
+      {
+        "name": "Desk"
+      },
+      {
+        "name": "Wardrobe"
+      },
+      {
+        "name": "Shelf"
+      },
+      {
+        "name": "Bed"
+      },
+      {
+        "name": "Cabinet"
+      },
+      {
+        "name": "Mirror"
+      }
+    ],
+    "Books": [
+      {
+        "name": "Fiction"
+      },
+      {
+        "name": "Non-fiction"
+      },
+      {
+        "name": "Mystery"
+      },
+      {
+        "name": "Biography"
+      },
+      {
+        "name": "History"
+      },
+      {
+        "name": "Science"
+      }
+    ],
+    "Toys": [
+      {
+        "name": "Doll"
+      },
+      {
+        "name": "Car"
+      },
+      {
+        "name": "Puzzle"
+      },
+      {
+        "name": "Lego"
+      },
+      {
+        "name": "Ball"
+      },
+      {
+        "name": "Board Game"
+      },
+      {
+        "name": "Robot"
+      },
+      {
+        "name": "Kite"
+      },
+      {
+        "name": "Yo-Yo"
+      }
+    ],
+    "Clothes": [
+      {
+        "name": "Shirt"
+      },
+      {
+        "name": "Pants"
+      },
+      {
+        "name": "Jacket"
+      },
+      {
+        "name": "Shoes"
+      },
+      {
+        "name": "Socks"
+      },
+      {
+        "name": "Hat"
+      },
+      {
+        "name": "Sweater"
+      },
+      {
+        "name": "Shorts"
+      }
+    ],
+    "Shoes": [
+      {
+        "name": "Sneakers"
+      },
+      {
+        "name": "Boots"
+      },
+      {
+        "name": "Sandals"
+      },
+      {
+        "name": "Heels"
+      },
+      {
+        "name": "Slippers"
+      },
+      {
+        "name": "Flats"
+      },
+      {
+        "name": "Crocs"
+      },
+      {
+        "name": "Moccasins"
+      },
+      {
+        "name": "Clogs"
+      },
+      {
+        "name": "Espadrilles"
+      },
+      {
+        "name": "Flip Flops"
+      }
+    ],
+    "Drinks": [
+      {
+        "name": "Water"
+      },
+      {
+        "name": "Juice"
+      },
+      {
+        "name": "Tea"
+      },
+      {
+        "name": "Coffee"
+      },
+      {
+        "name": "Soda"
+      },
+      {
+        "name": "Milk"
+      },
+      {
+        "name": "Wine"
+      },
+      {
+        "name": "Beer"
+      }
+    ],
+    "Bikes": [
+      {
+        "name": "Mountain"
+      },
+      {
+        "name": "Road"
+      },
+      {
+        "name": "Hybrid"
+      },
+      {
+        "name": "Electric"
+      },
+      {
+        "name": "Kids"
+      },
+      {
+        "name": "BMX"
+      },
+      {
+        "name": "Touring"
+      },
+      {
+        "name": "Folding"
+      },
+      {
+        "name": "Cargo"
+      }
+    ],
+    "Sports": [
+      {
+        "name": "Soccer"
+      },
+      {
+        "name": "Basketball"
+      },
+      {
+        "name": "Tennis"
+      },
+      {
+        "name": "Baseball"
+      },
+      {
+        "name": "Running"
+      },
+      {
+        "name": "Cycling"
+      }
+    ],
+    "Music": [
+      {
+        "name": "Guitar"
+      },
+      {
+        "name": "Piano"
+      },
+      {
+        "name": "Drums"
+      },
+      {
+        "name": "Violin"
+      },
+      {
+        "name": "Flute"
+      },
+      {
+        "name": "Saxophone"
+      },
+      {
+        "name": "Trumpet"
+      },
+      {
+        "name": "Trombone"
+      },
+      {
+        "name": "Clarinet"
+      }
+    ],
+    "Tools": [
+      {
+        "name": "Hammer"
+      },
+      {
+        "name": "Drill"
+      },
+      {
+        "name": "Saw"
+      },
+      {
+        "name": "Wrench"
+      },
+      {
+        "name": "Screwdriver"
+      },
+      {
+        "name": "Pliers"
+      },
+      {
+        "name": "Level"
+      },
+      {
+        "name": "Tape Measure"
+      },
+      {
+        "name": "Toolbox"
+      }
+    ],
+    "Games": [
+      {
+        "name": "Chess"
+      },
+      {
+        "name": "Checkers"
+      },
+      {
+        "name": "Go"
+      },
+      {
+        "name": "Scrabble"
+      },
+      {
+        "name": "Monopoly"
+      },
+      {
+        "name": "Risk"
+      }
+    ],
+    "Gardening": [
+      {
+        "name": "Shovel"
+      },
+      {
+        "name": "Rake"
+      },
+      {
+        "name": "Hoe"
+      },
+      {
+        "name": "Gloves"
+      },
+      {
+        "name": "Pruners"
+      },
+      {
+        "name": "Hose"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "merge",
+  "version": "1.0.0",
+  "main": "merge.js",
+  "scripts": {
+    "prestart": "node merge-json.js",
+    "start": "json-server --watch db.json --port 3000"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}

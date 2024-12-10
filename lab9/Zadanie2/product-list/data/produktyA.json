@@ -1,0 +1,83 @@
+{
+    "Sweets": [
+      { "name": "Czekolada" },
+      { "name": "Cukierki" },
+      { "name": "Baton" },
+      { "name": "Lizak" },
+      { "name": "Gumy" },
+      { "name": "Wafle" }
+    ],
+    "Cars": [
+      { "name": "Fiat" },
+      { "name": "BMW" },
+      { "name": "Mercedes" },
+      { "name": "Toyota" },
+      { "name": "Audi" },
+      { "name": "Volkswagen" }
+    ],
+    "Electronics": [
+      { "name": "Laptop" },
+      { "name": "Smartphone" },
+      { "name": "Tablet" },
+      { "name": "Monitor" },
+      { "name": "Mouse" },
+      { "name": "Keyboard" }
+    ],
+    "Furniture": [
+      { "name": "Chair" },
+      { "name": "Table" },
+      { "name": "Sofa" },
+      { "name": "Desk" },
+      { "name": "Wardrobe" },
+      { "name": "Shelf" }
+    ],
+    "Books": [
+      { "name": "Fiction" },
+      { "name": "Non-fiction" },
+      { "name": "Mystery" },
+      { "name": "Biography" },
+      { "name": "History" },
+      { "name": "Science" }
+    ],
+    "Toys": [
+      { "name": "Doll" },
+      { "name": "Car" },
+      { "name": "Puzzle" },
+      { "name": "Lego" },
+      { "name": "Ball" },
+      { "name": "Board Game" }
+    ],
+    "Clothes": [
+      { "name": "Shirt" },
+      { "name": "Pants" },
+      { "name": "Jacket" },
+      { "name": "Shoes" },
+      { "name": "Socks" },
+      { "name": "Hat" }
+    ],
+    "Shoes": [
+      { "name": "Sneakers" },
+      { "name": "Boots" },
+      { "name": "Sandals" },
+      { "name": "Heels" },
+      { "name": "Slippers" },
+      { "name": "Flats" }
+    ],
+    "Drinks": [
+      { "name": "Water" },
+      { "name": "Juice" },
+      { "name": "Tea" },
+      { "name": "Coffee" },
+      { "name": "Soda" },
+      { "name": "Milk" }
+    ],
+    "Bikes": [
+      { "name": "Mountain" },
+      { "name": "Road" },
+      { "name": "Hybrid" },
+      { "name": "Electric" },
+      { "name": "Kids" },
+      { "name": "BMX" }
+    ]
+  }
+  
