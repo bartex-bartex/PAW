@@ -1,0 +1,81 @@
+<div class="summary">
+  <h2>Podsumowanie</h2>
+  <p>Liczba zwierząt: {{ totalAnimals }}</p>
+  <p>Liczba ulubionych zwierząt: {{ favoriteAnimals }}</p>
+</div>
+
+
+<div class="animal-list">
+  <h2>Lista Zwierzaków</h2>
+  <ul>
+    <li class="row">
+      <div>
+        <p>Nowa kategoria</p>
+        <input [(ngModel)]="newCategoryName" type="text" placeholder="Nazwa" />
+        <button (click)="addCategory()" [disabled]="!newCategoryName">Dodaj</button>
+      </div>
+    </li>
+    <li class="row">
+      <div>
+        <h3>Imię</h3>
+        <p>
+          Kategoria
+          <button class="filter-button" (click)="toggleFilterVisibility()">&#9660;</button>
+          <li *ngIf="filterVisible" class="filter-popup">
+            <div *ngFor="let category of categories">
+              <input
+                type="checkbox"
+                [id]="'category' + category.id"
+                [value]="category.id"
+                (change)="onCategoryChange(category.id, $event)"
+              />
+              <label [for]="'category' + category.id">{{ category.name }}</label>
+            </div>
+          </li>
+        </p>
+        <p>Wiek</p>
+        <p>Waga</p>
+        <p>Ulubione jedzenie</p>
+        <p></p>
+        <button (click)="startAdd()">Dodaj</button>
+      </div>
+    </li>
+
+    <li *ngIf="newAnimal" class="row">
+      <div>
+        <input [(ngModel)]="newAnimal.name" placeholder="Imię" required />
+        <select [(ngModel)]="newAnimal.category" required>
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+        </select>
+        <input [(ngModel)]="newAnimal.age" type="number" placeholder="Wiek" required />
+        <input [(ngModel)]="newAnimal.weight" type="number" placeholder="Waga" required />
+        <input [(ngModel)]="newAnimal.favoriteFood" placeholder="Ulubione jedzenie" required />
+        <button (click)="addAnimal()" [disabled]="!newAnimal.name || !newAnimal.category || !newAnimal.age || !newAnimal.weight || !newAnimal.favoriteFood">Dodaj</button>
+        <button (click)="cancelAdd()">Anuluj</button>
+      </div>
+    </li>
+    <li *ngFor="let animal of getFilteredAnimals()" [ngClass]="{'favorite': animal.favorite}" class="row">
+      <div *ngIf="editAnimal?.id !== animal.id">
+        <h3>{{ animal.name }}</h3>
+        <p>{{ getCategoryName(animal.category) }}</p>
+        <p>{{ animal.age }} lat</p>
+        <p>{{ animal.weight }} kg</p>
+        <p>{{ animal.favoriteFood }}</p>
+        <button (click)="startEdit(animal)">Edytuj</button>
+        <button (click)="deleteAnimal(animal.id)">Usuń</button>
+        <button (click)="toggleFavorite(animal)" [disabled]="!canToggleFavorite(animal)">{{ animal.favorite ? 'Usuń z ulubionych' : 'Dodaj do ulubionych' }}</button>
+      </div>
+      <div *ngIf="editAnimal?.id === animal.id">
+        <input [(ngModel)]="editAnimal!.name" placeholder="Imię" required />
+        <select [(ngModel)]="editAnimal!.category" required>
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+        </select>
+        <input [(ngModel)]="editAnimal!.age" type="number" placeholder="Wiek" required />
+        <input [(ngModel)]="editAnimal!.weight" type="number" placeholder="Waga" required />
+        <input [(ngModel)]="editAnimal!.favoriteFood" placeholder="Ulubione jedzenie" required />
+        <button (click)="saveEdit()">Zapisz</button>
+        <button (click)="cancelEdit()">Anuluj</button>
+      </div>
+    </li>
+  </ul>
+</div>

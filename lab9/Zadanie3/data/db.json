@@ -1,8 +1,26 @@
 {
   "animals": [
     {
+      "id": "1",
+      "name": "Rex",
+      "favorite": false,
+      "category": "1",
+      "age": 5,
+      "weight": 20,
+      "favoriteFood": "Bones"
+    },
+    {
+      "id": "2",
+      "name": "Whiskers",
+      "favorite": false,
+      "category": "2",
+      "age": 3,
+      "weight": 4,
+      "favoriteFood": "Fish"
+    },
+    {
       "id": "3",
-      "name": "Turbo Buddy",
+      "name": "Buddy",
       "favorite": false,
       "category": "1",
       "age": 2,
@@ -12,7 +30,7 @@
     {
       "id": "4",
       "name": "Bella",
-      "favorite": true,
+      "favorite": false,
       "category": "3",
       "age": 6,
       "weight": 15,
@@ -30,7 +48,7 @@
     {
       "id": "6",
       "name": "Bucks",
-      "favorite": true,
+      "favorite": false,
       "category": "6",
       "age": 2345,
       "weight": 300,
@@ -44,24 +62,6 @@
       "age": 12,
       "weight": 122,
       "favoriteFood": "Stick"
-    },
-    {
-      "id": "8",
-      "name": "Tom",
-      "favorite": false,
-      "category": "8",
-      "age": 123,
-      "weight": 43,
-      "favoriteFood": "Kasz"
-    },
-    {
-      "id": "9",
-      "name": "Cattys",
-      "favorite": true,
-      "category": "10",
-      "age": 4300,
-      "weight": 12,
-      "favoriteFood": "Milk"
     }
   ],
   "categories": [
@@ -92,18 +92,6 @@
     {
       "id": "7",
       "name": "Random"
-    },
-    {
-      "id": "8",
-      "name": "JustNew"
-    },
-    {
-      "id": "9",
-      "name": "Hello"
-    },
-    {
-      "id": "10",
-      "name": "JustIt"
     }
   ]
 }

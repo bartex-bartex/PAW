@@ -1,0 +1,116 @@
+.animal-list {
+  ul {
+    list-style: square;
+    padding: 20px;
+    margin: 0;
+    background-color: #f0f4f8;
+    border-radius: 8px;
+
+    .row {
+      border: none;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+
+      &.favorite {
+        border-left: 6px solid #ff6f61;
+        background-color: #fff7f5;
+      }
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background: linear-gradient(135deg, #e0eafc, #cfdef3);
+
+        p, h3 {
+          margin: 0;
+          color: #333;
+        }
+
+        > button {
+          padding: 8px 16px;
+          border: none;
+          border-radius: 4px;
+          background-color: #4caf50;
+          color: #fff;
+          font-weight: bold;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+
+        > button:hover {
+          background-color: #45a049;
+        }
+
+        input {
+          width: 70%;
+          padding: 5px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          text-align: left;
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+
+  .filter-button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+
+  .filter-button:hover {
+    background-color: #0056b3;
+  }
+
+  .filter-popup {
+    position: absolute;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: grid;
+    gap: 15px;
+
+    div {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+  }
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+  color: #fff;
+  font-size: 1em;
+
+  h2 {
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.1em;
+  }
+}
