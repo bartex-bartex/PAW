@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="section" #section1>
+    <h2>Sekcja 1</h2>
+    <p>Treść sekcji 1. Przewiń w dół, aby ją zobaczyć.</p>
+  </div>
+
+  <div class="image-section" #imageSection>
+    <h2>Obrazek</h2>
+    <img src="https://picsum.photos/200/300" alt="Placeholder Image">
+  </div>
+  <div class="image-section" #imageSection>
+    <h2>Obrazek</h2>
+    <img src="https://picsum.photos/200/300" alt="Placeholder Image">
+  </div>
+  <div class="image-section" #imageSection>
+    <h2>Obrazek</h2>
+    <img src="https://picsum.photos/200/300" alt="Placeholder Image">
+  </div>
+
+  <div class="form-container" *ngIf="isFormVisible">
+    <div class="form">
+      <h3>Formularz</h3>
+      <form>
+        <label for="input">Wpisz coś:</label>
+        <input id="input" type="text" />
+      </form>
+    </div>
+  </div>
+</div>
